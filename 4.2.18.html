@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("images (2).png")
+        }
+    #mydiv{
+        border: 5px #007bf3 solid;;
+        padding: 20px;     
+        margin-bottom: 30px;
+        font-size: 32px;      
+        
+    }
+    #h1{
+        color:#007bf3;
+        text-align: center;
+        font-family: Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;        
+    }  
+    #text{
+         margin-right: 20px;
+        height: 60px;             
+        border: 2px green solid;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        font-size: 36px;
+        width: 600px;
+        margin-left: 400px;         
+        display: inline-block; 
+       
+    }
+    #text1{
+        width: 130px;
+        margin-left: 400px;
+    }    
+    li{
+        border: 2px solid #cd2c6c;
+        font-family:'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+        border-radius: 10px;
+        color: red;
+        font-size: 32px;     
+       
+    }
+    #input{
+        height: 35px;
+    }
+       #edit{
+        float: right;
+        width: 10%;
+        height: 48px;
+      font-size: 24px;
+     
+    }    
+    #dlt1{
+        float: right;
+        width: 10%;
+       margin-left: 30px;
+        height: 48px;
+        font-size: 24px;
+        
+   
+    }
+    </style>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    b integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <div id="div1">
+        <input type="button" value="button" onclick="div2()">
+
+    </div> -->
+    <div id="div1">
+            
+    </div>
+
+</body>
+<script>
+
+// var div1 = document.getElementById('div1');
+// function div2(){
+//     var x = document.createElement("p");
+//     div1.appendChild(x);
+//     var x1 = document.createTextNode('HEllo my name is Teerath');
+//     div1.appendChild(x1);
+// }
+
+var z = document.getElementById('div1');
+var z1 = document.createElement('div');
+z1.setAttribute('id','mydiv');
+z.appendChild(z1)
+
+
+var h1 = document.createElement('h1');
+h1.setAttribute('id', 'h1')
+var h2 = document.createTextNode("Todo app");
+h1.appendChild(h2);
+z1.appendChild(h1);
+
+z2 = document.createElement('input');
+z2.setAttribute("class", "form-control form-control-lg");
+z2.setAttribute('type','text');
+z2.setAttribute('placeholder','Enter your value')
+z2.setAttribute('id', 'text');
+z1.appendChild(z2);
+//button
+z3 = document.createElement('input');
+z3.setAttribute("class","btn btn-outline-primary");
+z3.setAttribute('type','button');
+z3.setAttribute('value','Add ')
+z3.setAttribute('id', 'text1');
+z3.setAttribute('onclick', 'btn()');
+z1.appendChild(z3);
+function btn(){
+    var input = document.getElementById('text').value
+    if (input === ""){
+        alert("first please Enter value ")
+    }
+    else{
+    var div5 = document.createElement('div');
+    z.appendChild(div5);
+    var ol = document.createElement('ul');
+    var li = document.createElement('li');
+    li.setAttribute('id',input);
+    var input2 = document.createTextNode(input);
+    li.appendChild(input2)
+    
+
+    var edit = document.createElement('input');
+    edit.setAttribute("class", "btn btn-outline-success");
+    edit.setAttribute('type','button');
+    edit.setAttribute('value','Edit')
+    edit.setAttribute('id', 'edit')
+    edit.setAttribute('onclick', 'btn2()');
+    
+    var dlt = document.createElement('input');
+    dlt.setAttribute("class", "btn btn-outline-secondary");
+    dlt.setAttribute('type','button');
+    dlt.setAttribute('value','Delete')
+    dlt.setAttribute('id', 'dlt1')
+    dlt.setAttribute('onclick', 'btn1()');
+    li.appendChild(dlt);
+    li.appendChild(edit);
+    ol.appendChild(li)
+    div5.appendChild(ol);
+    
+
+    dlt.addEventListener("click", function(){
+        dlt.parentNode.remove();
+    })
+    edit.addEventListener("click", function(){
+    var li = this.parentNode;
+    var text = prompt("Enter any value", li.id);
+    li.innerHTML = text;
+    li.appendChild(dlt);
+    li.appendChild(edit);    
+    })
+    document.getElementById("text").value = ""
+    }    
+}
+
+
+
+</script>
+</html>
